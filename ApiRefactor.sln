@@ -5,18 +5,24 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiRefactor", "ApiRefactor\ApiRefactor.csproj", "{452EC2CC-C614-41F1-8C5A-0BA15E521403}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiRefactor.Tests", "ApiRefactor.Tests\ApiRefactor.Tests.csproj", "{9B4984A9-8D04-4580-9F20-A4752CDB9EB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{452EC2CC-C614-41F1-8C5A-0BA15E521403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{452EC2CC-C614-41F1-8C5A-0BA15E521403}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{452EC2CC-C614-41F1-8C5A-0BA15E521403}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{452EC2CC-C614-41F1-8C5A-0BA15E521403}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B4984A9-8D04-4580-9F20-A4752CDB9EB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B4984A9-8D04-4580-9F20-A4752CDB9EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B4984A9-8D04-4580-9F20-A4752CDB9EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B4984A9-8D04-4580-9F20-A4752CDB9EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
