@@ -6,8 +6,10 @@ namespace ApiRefactor.Service;
 public class WaveService : IWaveService
 {
     private readonly IWaveRepository _repository;
-
-    public WaveService(IWaveRepository repository) => _repository = repository;
+    private readonly ILogger<WaveService> _logger;
+    
+    public WaveService(IWaveRepository repository, ILogger<WaveService> logger) => 
+        (_repository, _logger) = (repository, logger);
 
     public async Task<List<Wave>> GetAllWavesAsync()
     {
@@ -28,9 +30,10 @@ public class WaveService : IWaveService
 
         if (await _repository.ExistsAsync(wave.Id))
         {
+            _logger.LogError($"Create wave of {wave.Id} unsuccessful");
             throw new InvalidOperationException($"Wave with ID {wave.Id} already exists");
         }
-
+        _logger.LogInformation($"Create wave of {wave.Id} successful");
         return await _repository.CreateAsync(wave);
     }
 
@@ -40,14 +43,17 @@ public class WaveService : IWaveService
 
         if (id != wave.Id)
         {
+            _logger.LogError($"Update wave of {wave.Id} unsuccessful");
             throw new ArgumentException("ID in route must match ID in body");
         }
 
         if (!await _repository.ExistsAsync(id))
         {
+            _logger.LogError($"Update wave of {wave.Id} unsuccessful");
             throw new KeyNotFoundException($"Wave with ID {id} not found");
         }
 
+        _logger.LogInformation($"Update wave of {wave.Id} successful");
         return await _repository.UpdateAsync(wave);
     }
 

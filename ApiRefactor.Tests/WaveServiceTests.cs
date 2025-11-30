@@ -1,6 +1,7 @@
 ﻿using ApiRefactor.Models;
 using ApiRefactor.Repository;
 using ApiRefactor.Service;
+using Microsoft.Extensions.Logging;
 using Moq;
 using Shouldly;
 
@@ -9,12 +10,15 @@ namespace ApiRefactor.Tests;
 public class WaveServiceTests
 {
     private readonly Mock<IWaveRepository> _mockRepository;
+    private readonly Mock<ILogger<WaveService>> _mocklogger;
     private readonly WaveService _service;
 
     public WaveServiceTests()
     {
         _mockRepository = new Mock<IWaveRepository>();
-        _service = new WaveService(_mockRepository.Object);
+        _mocklogger = new Mock<ILogger<WaveService>>();
+
+        _service = new WaveService(_mockRepository.Object, _mocklogger.Object);
     }
 
     #region GetAllWavesAsync Tests

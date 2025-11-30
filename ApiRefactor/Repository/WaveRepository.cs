@@ -3,15 +3,6 @@ using Microsoft.Data.Sqlite;
 
 namespace ApiRefactor.Repository;
 
-public interface IWaveRepository
-{
-    Task<List<Guid>> GetAllWavesAsync();
-    Task<Wave?> GetByIdAsync(Guid id);
-    Task<Wave> CreateAsync(Wave wave);
-    Task<Wave> UpdateAsync(Wave wave);
-    Task<bool> ExistsAsync(Guid id);
-}
-
 public class WaveRepository: IWaveRepository
 {
     private readonly string _connectionString;
